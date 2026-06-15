@@ -1,56 +1,61 @@
-# 📊 Trabajo Práctico: Gestión Colaborativa, Control de Versiones y Organización Empresarial
-## 💻 (Git, GitHub y Jira) & Análisis de Ventas - Pequeña Empresa
+# # #  Trabajo Práctico: Gestión Colaborativa, Control de Versiones y Organización Empresarial
+##  Análisis de Ventas - Pequeña Empresa
+
+##  Descripción del Proyecto
+En la ingeniería de software moderna y la organización de procesos productivos, la capacidad de registrar, revisar y coordinar cambios en un equipo distribuido es un pilar fundamental para garantizar la trazabilidad y la calidad. En este informe integramos la gestión de proyectos y el control de versiones bajo el paradigma de Aprendizaje Basado en Problemas (ABP).
 
 ---
 
-## 🚀 Descripción del Proyecto
-Este repositorio contiene el desarrollo de una solución modular en Python (Google Colab) orientada al **Análisis de Ventas para una Pequeña Empresa**. El objetivo principal es extraer métricas clave del negocio mediante el procesamiento de datos históricos, asegurando un entorno de ejecución reproducible, seguro y gestionado bajo buenas prácticas de ingeniería de software.
+##  I. Gestión Organizacional y Trazabilidad (Jira - GitHub)
+Este proyecto sigue una metodología ágil gestionada en Jira, vinculando cada cambio en el código con un ticket específico.
 
----
+*   **Enlace al Tablero Jira: https://regnermaria579-1778628575092.atlassian.net/jira/software/projects/OE/boards/34**
+*   **Estrategia de Ramas:** Se utiliza el flujo de trabajo de GitFeature Branch. Está prohibido pushear directamente a `main`.
 
-## 📅 I. Gestión Organizacional y Trazabilidad (Jira)
-El desarrollo del proyecto se planificó de forma individual utilizando un enfoque ágil en **Jira**. Cada incremento de código y documentación está estrictamente vinculado a un ticket único para garantizar la trazabilidad completa del ciclo de vida del software.
+### Tabla de Trazabilidad de Tareas
 
-### 🔗 Matriz de Trazabilidad de Requerimientos
-
-| ID Ticket Jira | Tarea / Característica | Rama Asociada en GitHub | Estado |
+| ID Ticket Jira | Tarea / Característica | Rama en GitHub | Estado Actual |
 | :--- | :--- | :--- | :--- |
-| **AN-1** | Configuración de entorno Colab y PAT | `main` | ✅ Completado |
-| **AN-2** | Diseño de Arquitectura y Estructura | `main` | ✅ Completado |
-| **AN-3** | Optimización de Documentación (`README.md`) | `feature/desarrollo-analisis` | ✅ Completado |
-| **AN-4** | Desarrollo del Algoritmo de Análisis | `feature/desarrollo-analisis` | ⏳ En Progreso |
+| **PROY-1** | Configuración de entorno Colab | `feature/config-colab` | Completado |
+| **PROY-2** | Desarrollo del algoritmo principal | `feature/algoritmo-core` | En Progreso |
+
+>  **Nota de Trazabilidad:** Todos los commits deben iniciar con el ID del ticket (Ej: `git commit -m "PROY-1: Configuración de PAT en Colab"`).
 
 ---
 
-## 🔀 II. Control de Versiones (Flujo Git & GitHub)
-Para este proyecto individual se adoptó una estrategia de ramificación basada en **Feature Branches** para asegurar que la rama principal (`main`) permanezca siempre en un estado estable y ejecutable.
+##  II. Control de Versiones (Flujo Git & Evidencias)
 
-*   **Política de Integración:** Está prohibida la inyección directa de código sobre la rama `main`. Todo cambio se realiza en ramas secundarias identificadas con el prefijo del área correspondiente (ej. `feature/`).
-*   **Aprobación mediante Pull Requests:** La integración de nuevas características se ejecuta formalmente a través de Pull Requests (PRs). Al ser un desarrollo unipersonal, el flujo se valida mediante auditoría propia y cierre de PR por la autora.
+### Historial de Ramas y Pull Requests (PRs)
+El desarrollo se organiza en ramas de características que se integran a `main` exclusivamente mediante Pull Requests revisados.
+
+*   **Rama Principal:** `main` (Código estable y listo para ejecución).
+*   **Historial de Commits Significativos:** [Inserta captura de pantalla o texto del comando `git log --oneline` que demuestre los mensajes con el ID de Jira].
+*   **Evidencia de Pull Requests:** [Inserta aquí una captura de pantalla de la sección "Pull Requests" de GitHub que muestre la revisión antes de fusionar].
 
 ---
 
-## 🛠️ III. Implementación Técnica y Reproducibilidad
+##  III. Implementación Técnica y Reproducibilidad
 
-### 🔒 Autenticación Segura (Google Colab)
-La interacción entre el entorno de Google Colab y este repositorio remoto se realiza mediante un **Token de Acceso Personal (PAT)** de GitHub. 
-*   Las credenciales se inyectan de forma privada utilizando la API `google.colab.userdata`.
-*   Se configuró de forma exitosa la identidad global de Git de la desarrolladora, evitando la exposición de contraseñas o tokens dentro de las celdas públicas del notebook.
+### Entorno en Google Colab
+La autenticación se realiza de forma segura mediante un **Token de Acceso Personal (PAT)** de GitHub, configurando la identidad global sin exponer credenciales en las celdas públicas del notebook.
 
-### 📁 Estructura General del Proyecto
-El repositorio sigue un esquema de arquitectura organizada por responsabilidades para facilitar su auditoría y mantenimiento:
-
+### Estructura del Repositorio
 ```text
-├── datos/                   # Datasets y fuentes de información (CSV/Excel)
-├── resultados/              # Reportes generados, gráficos y exportaciones
-├── scripts/                 # Módulos auxiliares de código Python (.py)
-├── .gitignore               # Archivo de exclusión de Git para entornos Colab/Python
-└── README.md                # Documentación técnica principal del sistema
+├── .gitignore               # Archivo de exclusión de Git
+├── README.md                # Documentación principal del proyecto
+├── notebooks/               # Archivos de Google Colab (.ipynb)
+│   └── proyecto_main.ipynb
+├── src/                     # Código fuente modularizado (.py)
+│   └── utils.py
+└── requirements.txt         # Dependencias del proyecto para reproducibilidad
 ```
 
-### ⚡ Guía de Reproducción Rápida
-1. Almacenar el token de GitHub en el apartado **Secrets** (ícono de llave en Colab) bajo el nombre de variable `GH_PAT`.
-2. Abrir el entorno de desarrollo y ejecutar secuencialmente las celdas de configuración de entorno.
-3. El sistema gestionará automáticamente el montaje del repositorio y las dependencias necesarias.
+### Guía de Ejecución Rápida
+1. Abrir el notebook alojado en `notebooks/proyecto_main.ipynb` en Google Colab.
+2. Crear un archivo de entorno o utilizar los *Secrets* de Colab para almacenar el `GH_PAT`.
+3. Ejecutar las celdas en orden secuencial.
 
-print("¡Archivo README.md creado y guardado con éxito!")
+!git commit -m "Cambios en readme.md"
+
+!git push origin {rama}
+print(f"🚀 Código enviado con éxito a la rama {rama}")
