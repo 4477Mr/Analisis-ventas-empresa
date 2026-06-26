@@ -1,4 +1,4 @@
-# # #  Trabajo Práctico: Gestión Colaborativa, Control de Versiones y Organización Empresarial
+# Trabajo Práctico: Gestión Colaborativa, Control de Versiones y Organización Empresarial
 ##  Análisis de Ventas - Pequeña Empresa
 
 ##  Descripción del Proyecto
